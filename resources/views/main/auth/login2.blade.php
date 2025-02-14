@@ -120,6 +120,7 @@
             });
         });
     </script>
+
     <script type="text/javascript">
         var onloadCallback = function() {
             grecaptcha.render('feedback-recaptcha', {
