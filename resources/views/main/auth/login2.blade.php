@@ -34,7 +34,7 @@ async defer></script>
                                     <div class="card-body">
                                         <h2 class="display-4 mb-2 font-weight-bold error-text text-center">
                                             <strong>Login</strong></h2>
-                                        <h4 class="text-white-80 mb-7 text-center">Sign In to your accounts</h4>
+                                        <h4 class="text-white-80 mb-7 text-center">Sign In to your accountss</h4>
                                         <div class="row">
                                             <div class="col-9 d-block mx-auto">
                                                 <div class="input-group mb-4">
