@@ -56,11 +56,11 @@ async defer></script>
                                                     <input id="password" type="password" class="form-control"
                                                            name="password" required>
                                                 </div>
-                                                <div class="col-sm-12 mb-2 p-0">
+                                                {{-- <div class="col-sm-12 mb-2 p-0">
                                                     <div class="g-recaptcha" id="feedback-recaptcha" 
                                                          data-sitekey="6LeoLjknAAAAAMG7lg4VsHVuD17VTKVAt0rNElXa">
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <button type="submit" id="loginBtn"

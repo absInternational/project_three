@@ -54,11 +54,11 @@ async defer></script>
                                                 <!--        <input type="checkbox" class="custom-control-input"/>-->
                                                 <!--    </label>-->
                                                 <!--</div>-->
-                                                <div class="col-sm-12 mb-2 p-0">
+                                                {{-- <div class="col-sm-12 mb-2 p-0">
                                                     <div class="g-recaptcha" id="feedback-recaptcha" 
                                                          data-sitekey="6LeoLjknAAAAAMG7lg4VsHVuD17VTKVAt0rNElXa">
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                                 <button type="submit" class="btn btn-warning btn-block px-4" id="loginBtn"><i
                                                         class="fe fe-send"></i> Verify
                                                 </button>
