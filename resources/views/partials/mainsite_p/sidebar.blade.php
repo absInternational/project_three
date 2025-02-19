@@ -188,7 +188,8 @@
                     @if (Auth::user()->userRole->name == 'Admin' || in_array('147', $phoneaccess))
                         <li>
                             <a class="side-menu__item" href="{{ route('view_query') }}">
-                                <span class="js-search-result-thumbnail responsive-img img_border fa fa-question"></span>
+                                <span
+                                    class="js-search-result-thumbnail responsive-img img_border fa fa-question"></span>
                                 <span class="side-menu__label">Shipa1 Query</span>
                             </a>
                         </li>
@@ -818,7 +819,7 @@
                     @if (Auth::user()->userRole->name == 'Admin' || in_array('137', $phoneaccess))
                         <li>
                             <a style="background: #2dd1ba8c" class="side-menu__item"
-                               href="{{ url('autos_approach_new1') . '/' . base64_encode('Shipper') }}">
+                                href="{{ url('autos_approach_new1') . '/' . base64_encode('Shipper') }}">
                                 <span class="js-search-result-thumbnail responsive-img img_border fa fa-mobile"></span>
                                 <span class="side-menu__label">DayDispatch | Shipper</span>
                                 <span class="badge badge-warning side-badge" style="font-size: 15px"></span>
@@ -828,7 +829,7 @@
                     @if (Auth::user()->userRole->name == 'Admin' || in_array('138', $phoneaccess))
                         <li>
                             <a style="background: #2dd1ba8c" class="side-menu__item"
-                               href="{{ url('autos_approach_new1') . '/' . base64_encode('Carrier') }}">
+                                href="{{ url('autos_approach_new1') . '/' . base64_encode('Carrier') }}">
                                 <span class="js-search-result-thumbnail responsive-img img_border fa fa-mobile"></span>
                                 <span class="side-menu__label">DayDispatch | Carrier </span>
                                 <span class="badge badge-warning side-badge" style="font-size: 15px"></span>
@@ -838,18 +839,17 @@
                     @if (Auth::user()->userRole->name == 'Admin' || in_array('139', $phoneaccess))
                         <li>
                             <a style="background: #2dd1ba8c" class="side-menu__item"
-                               href="{{ url('autos_approach_new1') . '/' . base64_encode('Broker') }}">
+                                href="{{ url('autos_approach_new1') . '/' . base64_encode('Broker') }}">
                                 <span class="js-search-result-thumbnail responsive-img img_border fa fa-mobile"></span>
                                 <span class="side-menu__label">DayDispatch | Broker </span>
                                 <span class="badge badge-warning side-badge" style="font-size: 15px"></span>
                             </a>
                         </li>
-
                     @endif
                     @if (Auth::user()->userRole->name == 'Admin' || in_array('140', $phoneaccess))
                         <li>
                             <a style="background: #2dd1ba8c" class="side-menu__item"
-                               href="{{ route('autos.autos_approach_new_dealer') }}">
+                                href="{{ route('autos.autos_approach_new_dealer') }}">
                                 <span class="js-search-result-thumbnail responsive-img img_border fa fa-mobile"></span>
                                 <span class="side-menu__label">Dealer Approaching</span>
                                 <span class="badge badge-warning side-badge" style="font-size: 15px"></span>
