@@ -115,9 +115,9 @@ function get_user_name123($id)
     <div class="container-fluid">
         <div class="d-flex" style="align-items:center;">
             <a class="header-brand" href="/dashboard">
-                <img src="<?php echo e(url('assets/images/brand/ship_logo.png')); ?>" class="header-brand-img desktop-lgo"
+                <img src="<?php echo e(url('assets/images/brand/rodiyaapaa.png-removebg-preview.png')); ?>" class="header-brand-img desktop-lgo"
                      alt="Admintro logo">
-                <img src="<?php echo e(url('assets/images/brand/ship_logo.png')); ?>" class="header-brand-img dark-logo"
+                <img src="<?php echo e(url('assets/images/brand/rodiyaapaa.png-removebg-preview.png')); ?>" class="header-brand-img dark-logo"
                      alt="Admintro logo">
                 <img src="<?php echo e(url('assets/images/brand/favicon.png')); ?>" class="header-brand-img mobile-logo"
                      alt="Admintro logo">

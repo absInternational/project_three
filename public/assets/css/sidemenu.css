@@ -949,10 +949,10 @@
         border-right: 0px solid #ebecf1; } }
 
 .app-sidebar__logo {
-    padding: 13px 15px;
+    padding: 5px 5px !important;
     border-bottom: 1px solid #dbe2eb;
     border-right: 1px solid #dbe2eb;
-    height: 74px;
+    height: 85px;
     text-align: center;
     width: 300px;
     z-index: 999999;
@@ -1160,7 +1160,7 @@
     border: 1px solid #ebecf1; }
 
 .app-sidebar .sidebar-navs {
-    padding: 10px 0px 0px 0px; }
+    padding: 20px 0px 0px 0px; }
 
 .sidebar-navs .nav li:last-child a {
     margin-right: 0 !important; }

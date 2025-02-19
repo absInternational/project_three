@@ -70,14 +70,14 @@
 <aside class="app-sidebar">
     <div class="app-sidebar__logo">
         <a class="header-brand" href="@if (Auth::user()->role != 6) {{ url('dashboard') }} @endif">
-            <img src="{{ url('assets/images/brand/ship_logo.png') }}" class="header-brand-img desktop-lgo"
+            <img src="{{ url('assets/images/brand/rodiyaapaa.png-removebg-preview.png') }}" class="header-brand-img desktop-lgo"
                 alt="Admintro logo">
-            <img src="{{ url('assets/images/brand/ship_logo.png') }}" class="header-brand-img dark-logo"
+            <img src="{{ url('assets/images/brand/rodiyaapaa.png-removebg-preview.png') }}" class="header-brand-img dark-logo"
                 alt="Admintro logo">
-            <img src="{{ url('assets/images/brand/ship2.png') }}" class="header-brand-img mobile-logo"
-                alt="Admintro logo" style="border: 1px solid deepskyblue; border-radius: 100px;">
-            <img src="{{ url('assets/images/brand/ship2.png') }}" class="header-brand-img darkmobile-logo"
-                alt="Admintro logo" style="border: 1px solid deepskyblue; border-radius: 100px;">
+            <img src="{{ url('assets/images/brand/small-removebg-preview.png') }}" class="header-brand-img mobile-logo"
+                alt="Admintro logo" >
+            <img src="{{ url('assets/images/brand/small-removebg-preview.png') }}" class="header-brand-img darkmobile-logo"
+                alt="Admintro logo" >
 
             <audio controls style="display: none;" id="noti">
                 <source src="{{ url('audio/notification.mp3') }}" type="audio/mpeg">
