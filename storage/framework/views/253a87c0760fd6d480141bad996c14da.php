@@ -71,10 +71,8 @@
         <a class="header-brand" href="<?php echo e(url('dashboard')); ?>">
             <img src="<?php echo e(url('assets/images/brand/rodiyaapaa.png-removebg-preview.png')); ?>" class="header-brand-img desktop-lgo"
                 alt="Admintro logo">
-            
             <img src="<?php echo e(url('assets/images/brand/rodiyaapaa.png-removebg-preview.png')); ?>" class="header-brand-img dark-logo"
                 alt="Admintro logo">
-            
             <img src="<?php echo e(url('assets/images/brand/small-removebg-preview.png')); ?>" class="header-brand-img mobile-logo"
                 alt="Admintro logo" >
             <img src="<?php echo e(url('assets/images/brand/small-removebg-preview.png')); ?>" class="header-brand-img darkmobile-logo"
@@ -900,4 +898,4 @@
 
 
 <!--aside closed--> <!-- App-Content -->
-<?php /**PATH C:\xampp\htdocs\project_three\resources\views/partials/mainsite_p/sidebar.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/n0aa435/crm.roadya.com/resources/views/partials/mainsite_p/sidebar.blade.php ENDPATH**/ ?>
