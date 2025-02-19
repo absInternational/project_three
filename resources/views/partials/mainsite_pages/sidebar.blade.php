@@ -180,6 +180,14 @@
                         </a>
                     </li>
                 @endif
+                {{-- @if (Auth::user()->userRole->name == 'Admin') --}}
+                    <li>
+                        <a class="side-menu__item" href="{{ route('links') }}">
+                            <span class="js-search-result-thumbnail responsive-img img_border fa fa-question"></span>
+                            <span class="side-menu__label">Links</span>
+                        </a>
+                    </li>
+                {{-- @endif --}}
                 @if (in_array('80', $phoneaccess))
                     <!--<li>-->
                     <!--    <a class="side-menu__item" href="{{ url('/excelsheet/port') }}">-->

@@ -9,6 +9,7 @@ use App\Http\Controllers\PriceRangeController;
 use App\Http\Controllers\LogoutQuestionController;
 use App\Http\Controllers\LogoutQuestionsAnswerController;
 use App\Http\Controllers\CpanelEmailController;
+use App\Http\Controllers\LinkController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -1091,3 +1092,5 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('/approaching/save/email', 'phone_quote\neworder\NewOrder@approaching_save_email')->name('approaching.save.email');
 });
+
+Route::resource('links', LinkController::class);
