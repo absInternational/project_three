@@ -155,27 +155,6 @@ function get_user_name123($id)
                     </svg>
                 </a>
             </div>
-            {{-- @if(Auth::user()->role < 6 || Auth::user()->role > 7)
-            <div class="m-0">
-                <form class="form-inline m-0" action="{{ url('searchData') }}"
-                      id="searchFormData" method="get">
-                    <div class="search-element">
-                        <input type="search" name="search" class="form-control header-search w-25" autocomplete="off"
-                               placeholder="Search Order Id Here..."
-                               onfocus="$(this).attr('autocomplete', 'off');"
-                               aria-label="Search" tabindex="1">
-
-                        <button class="btn btn-primary-color" type="submit"
-                                style="height: 100%;border-left: 3px solid #6c757d;">
-                            <span class="fa fa-search" style="color: black"></span>
-                        </button>
-                        
-
-                    </div>
-                </form>
-
-            </div><!-- SEARCH -->
-            @endif --}}
             <div class="d-flex order-lg-2">
                 @if(Auth::user()->role < 6 || Auth::user()->role > 7)
                     <form class="form-inline m-0" action="{{ url('searchData') }}"

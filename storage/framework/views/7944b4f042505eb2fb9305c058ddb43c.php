@@ -1,6 +1,6 @@
-{{--@include('partials.mainsite_pages.return_function')--}}
 
-@php
+
+<?php
 $check_panel = check_panel();
 
 if($check_panel == 1){
@@ -13,7 +13,7 @@ elseif($check_panel == 3)
 else{
 $phoneaccess=explode(',',Auth::user()->emp_access_web);
 }
-@endphp
+?>
 <?php
 function get_user_name123($id)
 {
@@ -115,13 +115,13 @@ function get_user_name123($id)
     <div class="container-fluid">
         <div class="d-flex" style="align-items:center;">
             <a class="header-brand" href="/dashboard">
-                <img src="{{ url('assets/images/brand/ship_logo.png')}}" class="header-brand-img desktop-lgo"
+                <img src="<?php echo e(url('assets/images/brand/ship_logo.png')); ?>" class="header-brand-img desktop-lgo"
                      alt="Admintro logo">
-                <img src="{{ url('assets/images/brand/ship_logo.png')}}" class="header-brand-img dark-logo"
+                <img src="<?php echo e(url('assets/images/brand/ship_logo.png')); ?>" class="header-brand-img dark-logo"
                      alt="Admintro logo">
-                <img src="{{ url('assets/images/brand/favicon.png')}}" class="header-brand-img mobile-logo"
+                <img src="<?php echo e(url('assets/images/brand/favicon.png')); ?>" class="header-brand-img mobile-logo"
                      alt="Admintro logo">
-                <img src="{{ url('assets/images/brand/favicon1.png')}}" class="header-brand-img darkmobile-logo"
+                <img src="<?php echo e(url('assets/images/brand/favicon1.png')); ?>" class="header-brand-img darkmobile-logo"
                      alt="Admintro logo">
             </a>
 
@@ -141,8 +141,8 @@ function get_user_name123($id)
                 </a>
             </div>
             <div class="d-flex order-lg-2">
-                @if(Auth::user()->role < 6 || Auth::user()->role > 7)
-                <form class="form-inline m-0" action="{{ url('searchData') }}"
+                <?php if(Auth::user()->role < 6 || Auth::user()->role > 7): ?>
+                <form class="form-inline m-0" action="<?php echo e(url('searchData')); ?>"
                       id="searchFormData" method="get">
                     <div class="search-element">
                         <input type="search" name="search" class="form-control w-100" autocomplete="off"
@@ -158,8 +158,8 @@ function get_user_name123($id)
 
                     </div>
                 </form>
-            @endif
-            @if(Auth::user()->role < 6 || Auth::user()->role > 7)
+            <?php endif; ?>
+            <?php if(Auth::user()->role < 6 || Auth::user()->role > 7): ?>
                 <a href="#" data-toggle="search"
                    class="nav-link nav-link-lg d-md-none navsearch">
                     <svg class="header-icon search-icon" x="1008" y="1248" viewBox="0 0 24 24"
@@ -174,72 +174,72 @@ function get_user_name123($id)
 
              <ul class="header_social m-0 ml-2">
                 <!--<li class="nav-item" data-placement="top" data-toggle="tooltip" title="Global Search">-->
-                <!--    <a class="icon"  href="{{url('searchData')}}" >-->
+                <!--    <a class="icon"  href="<?php echo e(url('searchData')); ?>" >-->
                 <!--        <i class="fa fa-search header-icons" ></i>-->
                 <!--    </a>-->
                 <!--</li>-->
 
-                @if (in_array("18", $phoneaccess))
+                <?php if(in_array("18", $phoneaccess)): ?>
                     <li class="nav-item" data-placement="top" data-toggle="tooltip" title="New Car Quote">
-                        <a class="icon"   href="{{url('add_new')}}" target="_blank">
+                        <a class="icon"   href="<?php echo e(url('add_new')); ?>" target="_blank">
                             <i class="fa fa-phone header-icons" ></i>
                         </a>
                     </li>
-                @endif
-                @if (in_array("19", $phoneaccess))
+                <?php endif; ?>
+                <?php if(in_array("19", $phoneaccess)): ?>
                     <li class="nav-item" data-placement="top" data-toggle="tooltip" title="New Heavy Quote">
-                        <a class="icon"   href="{{url('add_new_heavy')}}" target="_blank">
+                        <a class="icon"   href="<?php echo e(url('add_new_heavy')); ?>" target="_blank">
                             <i class="fa fa-truck header-icons" ></i>
                         </a>
                     </li>
-                @endif
-                 @if (in_array("92", $phoneaccess))
+                <?php endif; ?>
+                 <?php if(in_array("92", $phoneaccess)): ?>
                      <li class="nav-item" data-placement="top" data-toggle="tooltip" title="New Freight Quote">
-                         <a class="icon"   href="{{url('add_new_freight')}}" target="_blank">
+                         <a class="icon"   href="<?php echo e(url('add_new_freight')); ?>" target="_blank">
                              <i class="fa fa-square-o header-icons" ></i>
                          </a>
                      </li>
-                 @endif
+                 <?php endif; ?>
 
 
-                @if (in_array("20", $phoneaccess))
+                <?php if(in_array("20", $phoneaccess)): ?>
                     <li class="nav-item"
                        data-placement="top" data-toggle="tooltip" title="Add Employee">
-                        <a class="icon"  href="{{url('add_employee')}}">
+                        <a class="icon"  href="<?php echo e(url('add_employee')); ?>">
                             <i class="fa fa-users header-icons"></i>
                         </a>
                     </li>
-                @endif
+                <?php endif; ?>
 
-                @if (in_array("20", $phoneaccess))
+                <?php if(in_array("20", $phoneaccess)): ?>
                     <li class="nav-item" data-placement="top" data-toggle="tooltip" title="View Employee">
-                        <a class="icon"   href="{{url('view_employee')}}">
+                        <a class="icon"   href="<?php echo e(url('view_employee')); ?>">
                             <i class="fa fa-street-view header-icons" ></i>
                         </a>
                     </li>
-                @endif
-                @if (in_array("63", $phoneaccess))
+                <?php endif; ?>
+                <?php if(in_array("63", $phoneaccess)): ?>
                     <li class="nav-item" data-placement="top" data-toggle="tooltip" title="Roles">
-                        <a class="icon" href="{{url('role')}}"
+                        <a class="icon" href="<?php echo e(url('role')); ?>"
                           >
                             <i class="fa fa-universal-access header-icons"></i>
                         </a>
                     </li>
-                @endif
-                @if (in_array("43", $phoneaccess))
+                <?php endif; ?>
+                <?php if(in_array("43", $phoneaccess)): ?>
                     <li class="nav-item" data-placement="top" data-toggle="tooltip" title="Flag Employee">
-                        <a class="icon"   href="{{url('flag_employee')}}">
+                        <a class="icon"   href="<?php echo e(url('flag_employee')); ?>">
                             <i class="fa fa-flag-o header-icons" ></i>
                         </a>
                     </li>
-                @endif
-                @if (in_array("22", $phoneaccess))
+                <?php endif; ?>
+                <?php if(in_array("22", $phoneaccess)): ?>
                     <!--<li class="nav-item"-->
                     <!--    style="margin-right: 15px;height: 40px;box-shadow: 0px 3px 16px #00000030;border-radius: 50px;margin-top: 2px;"-->
                     <!--    data-placement="top" data-toggle="tooltip" title="Old Shipa1 Move to New">-->
                         
                     <!--</li>-->
-                @endif
+                <?php endif; ?>
                 </ul>
                 <div class="header__btn">
                     <div class="dropdown">
@@ -248,238 +248,233 @@ function get_user_name123($id)
                             Management
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style=" margin-left: -22px; height: 350px; overflow: scroll; ">
-                            @if(Auth::user()->role==1)
-                                <a class="dropdown-item" href="{{url('report_terminal')}}"><i
+                            <?php if(Auth::user()->role==1): ?>
+                                <a class="dropdown-item" href="<?php echo e(url('report_terminal')); ?>"><i
                                             class="fe fe-file mr-1" style="color: #000;"></i>
                                     <span>Terminal Report</span>
                                 </a>
-                                <a class="dropdown-item" href="{{url('attendance_report')}}"><i
+                                <a class="dropdown-item" href="<?php echo e(url('attendance_report')); ?>"><i
                                             class="fe fe-clock mr-1 " style="color: #000;"></i>
                                     <span>Attendance Report</span>
                                 </a>
-                                <a class="dropdown-item" href="{{url('total_activity')}}"><i
+                                <a class="dropdown-item" href="<?php echo e(url('total_activity')); ?>"><i
                                             class="fe fe-briefcase mr-1" style="color: #000;"></i>
                                     <span>Total Activity</span>
                                 </a>
-                        <!--        <a class="dropdown-item" href="{{url('old_shipa1')}}">-->
+                        <!--        <a class="dropdown-item" href="<?php echo e(url('old_shipa1')); ?>">-->
                         <!--    <i class="fa fa-book header-icons"-->
                         <!--       style="color:#000;"></i>-->
                         <!--       <span>Old Ship A1</span>-->
                         <!--</a>-->
-                            @endif
-                            @if (in_array("23", $phoneaccess))
-                                <a class="dropdown-item" href="{{url('invoice_list')}}"><i
+                            <?php endif; ?>
+                            <?php if(in_array("23", $phoneaccess)): ?>
+                                <a class="dropdown-item" href="<?php echo e(url('invoice_list')); ?>"><i
                                             class="fe fe-dollar-sign mr-1 " style="color: #000;"></i>
                                     <span>Transportation Invoice</span>
                                 </a>
-                            @endif
-                            @if (in_array("73", $phoneaccess))
-                                <a class="dropdown-item" href="{{url('invoice_list_roro')}}"><i
+                            <?php endif; ?>
+                            <?php if(in_array("73", $phoneaccess)): ?>
+                                <a class="dropdown-item" href="<?php echo e(url('invoice_list_roro')); ?>"><i
                                             class="fe fe-dollar-sign mr-1 " style="color: #000;"></i>
                                     <span>Roro Invoice</span>
                                 </a>
-                            @endif
-                            @if(in_array("53", $phoneaccess))
-                                <a class="dropdown-item" href="{{url('storage_list')}}"><i
+                            <?php endif; ?>
+                            <?php if(in_array("53", $phoneaccess)): ?>
+                                <a class="dropdown-item" href="<?php echo e(url('storage_list')); ?>"><i
                                             class="fe fe-box mr-1 btn_animation" style="color: #000;"></i>
                                     <span>Storage</span>
                                 </a>
-                            @endif
-                            @if (in_array("24", $phoneaccess))
-                                <a class="dropdown-item" href="{{url('carrier_list')}}"><i
+                            <?php endif; ?>
+                            <?php if(in_array("24", $phoneaccess)): ?>
+                                <a class="dropdown-item" href="<?php echo e(url('carrier_list')); ?>"><i
                                             class="fe fe-truck mr-1 " style="color: #000;"></i>
                                     <span> Carriers</span>
                                 </a>
                                 
-                                <a class="dropdown-item" href="{{url('carrier_list2')}}"><i
+                                <a class="dropdown-item" href="<?php echo e(url('carrier_list2')); ?>"><i
                                             class="fe fe-truck mr-1 " style="color: #000;"></i>
                                     <span> Carriers List</span>
                                 </a>
                                 
-                            @endif
+                            <?php endif; ?>
                             <?php 
                                 $ud = \App\user_setting::where('user_id', '=', Auth::id())->first();
                             ?>
-                            @if (in_array("38", $phoneaccess))
-                                <a class="dropdown-item" href="{{url('customer_list')}}"><i
+                            <?php if(in_array("38", $phoneaccess)): ?>
+                                <a class="dropdown-item" href="<?php echo e(url('customer_list')); ?>"><i
                                             class="fe fe-users mr-1 " style="color: #000;"></i>
                                     <span>Customers List</span>
                                 </a>
-                            @endif
-                            @if(Auth::user()->role==1)
-                                <a class="dropdown-item" href="{{url('credit_card_list')}}"><i
+                            <?php endif; ?>
+                            <?php if(Auth::user()->role==1): ?>
+                                <a class="dropdown-item" href="<?php echo e(url('credit_card_list')); ?>"><i
                                             class="fe fe-credit-card mr-1 " style="color: #000;"></i>
                                     <span>Credit Card</span>
                                 </a>
-                                <a class="dropdown-item" href="{{url('sales_report')}}"><i
+                                <a class="dropdown-item" href="<?php echo e(url('sales_report')); ?>"><i
                                             class="fe fe-folder mr-1 " style="color: #000;"></i>
                                     <span>Sales Report</span>
                                 </a>
-                                <a class="dropdown-item" href="{{url('general_setting_add')}}"><i
+                                <a class="dropdown-item" href="<?php echo e(url('general_setting_add')); ?>"><i
                                             class="fe fe-settings mr-1 " style="color: #000;"></i>
                                     <span>General Settings</span>
                                 </a>
-                                <a class="dropdown-item" href="{{url('user_commission')}}"><i
+                                <a class="dropdown-item" href="<?php echo e(url('user_commission')); ?>"><i
                                             class="fa fa-money mr-1 " style="color: #000;"></i>
                                     <span>User Commission</span>
                                 </a>
-                                <a class="dropdown-item" href="{{url('first_bonus')}}"><i
+                                <a class="dropdown-item" href="<?php echo e(url('first_bonus')); ?>"><i
                                             class="fa fa-dollar mr-1 " style="color: #000;"></i>
                                     <span> First Bonus</span>
                                 </a>
-                                <a class="dropdown-item" href="{{url('second_bonus')}}"><i
+                                <a class="dropdown-item" href="<?php echo e(url('second_bonus')); ?>"><i
                                             class="fa fa-dollar mr-1 " style="color: #000;"></i>
                                     <span> Second Bonus</span>
                                 </a>
-                                <a class="dropdown-item" href="{{url('web_price')}}"><i
+                                <a class="dropdown-item" href="<?php echo e(url('web_price')); ?>"><i
                                                 class="fa fa-dollar mr-1 " style="color: #000;"></i>
                                      <span> Web Price</span>
                                 </a>
-                            @endif
-                            @if (in_array("25", $phoneaccess))
+                            <?php endif; ?>
+                            <?php if(in_array("25", $phoneaccess)): ?>
                                 <a href="javascript:void(0)" id="view_mail" class="dropdown-item">
                                     <i class="fa fa-envelope mr-1" style="color: black"></i> <span> View E-mails</span>
                                 </a>
-                            @endif
-                            @if (in_array("26", $phoneaccess))
-                                <a class="dropdown-item" href="{{url('quote_listing')}}"><i
+                            <?php endif; ?>
+                            <?php if(in_array("26", $phoneaccess)): ?>
+                                <a class="dropdown-item" href="<?php echo e(url('quote_listing')); ?>"><i
                                             class="fa fa-dollar mr-1 " style="color: #000;"></i>
                                     <span> Show Data</span>
                                 </a>
-                            @endif
-                            @if (in_array("54", $phoneaccess))
-                                <a class="dropdown-item" href="{{url('shipment_status')}}"><i
+                            <?php endif; ?>
+                            <?php if(in_array("54", $phoneaccess)): ?>
+                                <a class="dropdown-item" href="<?php echo e(url('shipment_status')); ?>"><i
                                             class="fa fa-dollar mr-1 " style="color: #000;"></i>
                                     <span> Shipment Status</span>
                                 </a>
-                            @endif
-                            @if (in_array("27", $phoneaccess))
-                                <a class="dropdown-item" href="{{url('sheet_list')}}"><i
+                            <?php endif; ?>
+                            <?php if(in_array("27", $phoneaccess)): ?>
+                                <a class="dropdown-item" href="<?php echo e(url('sheet_list')); ?>"><i
                                             class="fa fa-table " style="color: #000;"></i>
                                     <span> Sheets</span>
                                 </a>
-                            @endif
-                            {{--
-                            <a class="dropdown-item" href="{{url('manage_payments')}}"><i
-                                        class="fa fa-folder mr-1 " style="color: #000;"></i>
-                                <span> Manage Payments</span>
-                            </a>
-                            --}}
-                            @if(Auth::user()->role==1)
-                                <a class="dropdown-item" href="{{url('profit_listing')}}"><i
+                            <?php endif; ?>
+                            
+                            <?php if(Auth::user()->role==1): ?>
+                                <a class="dropdown-item" href="<?php echo e(url('profit_listing')); ?>"><i
                                             class="fa fa-money " style="color: #000;"></i>
                                     <span>Manage Accounts</span>
                                 </a>
-                            @endif
-                            @if (in_array("41", $phoneaccess))
-                            <a class="dropdown-item" href="{{url('phone_digits')}}"><i
+                            <?php endif; ?>
+                            <?php if(in_array("41", $phoneaccess)): ?>
+                            <a class="dropdown-item" href="<?php echo e(url('phone_digits')); ?>"><i
                                         class="fa fa-phone " style="color: #000;"></i>
                                 <span>Phone Number Digits</span>
                             </a>
-                            @endif
-                            @if (in_array("94", $phoneaccess))
-                                <a class="dropdown-item" href="{{url('add_guide_list')}}"><i
+                            <?php endif; ?>
+                            <?php if(in_array("94", $phoneaccess)): ?>
+                                <a class="dropdown-item" href="<?php echo e(url('add_guide_list')); ?>"><i
                                             class="fa fa-phone " style="color: #000;"></i>
                                     <span>Add Guide</span>
                                 </a>
-                            @endif
-                            @if (in_array("100", $phoneaccess))
-                            <a class="dropdown-item" href="{{route('field_labels.index')}}"><i
+                            <?php endif; ?>
+                            <?php if(in_array("100", $phoneaccess)): ?>
+                            <a class="dropdown-item" href="<?php echo e(route('field_labels.index')); ?>"><i
                                         class="fa fa-phone " style="color: #000;"></i>
                                 <span>Field Labels</span>
                             </a>
-                            @endif
-                            @if (in_array("105", $phoneaccess))
-                            <a class="dropdown-item" href="{{route('email-templates.index')}}"><i
+                            <?php endif; ?>
+                            <?php if(in_array("105", $phoneaccess)): ?>
+                            <a class="dropdown-item" href="<?php echo e(route('email-templates.index')); ?>"><i
                                         class="fa fa-phone " style="color: #000;"></i>
                                 <span>Custom Email Templates</span>
                             </a>
-                            @endif
-                            @if (in_array("109", $phoneaccess))
-                            <a class="dropdown-item" href="{{route('authorization.forms.index')}}"><i
+                            <?php endif; ?>
+                            <?php if(in_array("109", $phoneaccess)): ?>
+                            <a class="dropdown-item" href="<?php echo e(route('authorization.forms.index')); ?>"><i
                                         class="fa fa-phone " style="color: #000;"></i>
                                 <span>Authorization Forms</span>
                             </a>
-                            @endif
+                            <?php endif; ?>
                         </div>
                     </div>
               
-                @endif
+                <?php endif; ?>
                 
-                    @php
+                    <?php
                         //panel type access
                         $emp_panel_access = Auth::user()->emp_panel_access;
                         $emp_panel_access = explode(',', $emp_panel_access);
-                    @endphp
-                @if(Auth::user()->role < 6 || Auth::user()->role > 7)
-                    <form name="penalform" action="{{url('penal_type')}}" id="panel_form" method="post" class="m-0">
-                        @csrf
+                    ?>
+                <?php if(Auth::user()->role < 6 || Auth::user()->role > 7): ?>
+                    <form name="penalform" action="<?php echo e(url('penal_type')); ?>" id="panel_form" method="post" class="m-0">
+                        <?php echo csrf_field(); ?>
                         <select class="form-control h-70 panel_typepanel_type"
                                 name="panel_type" id="panel_type">
 
                             <option selected="selected" value=""><?php echo get_panel_name(); ?></option>
                             <optgroup label="Select Panel Type">
-                                @if (in_array('1', $emp_panel_access))
+                                <?php if(in_array('1', $emp_panel_access)): ?>
                                     <option value="1">Phone Quote</option>
-                                @endif
-                                @if (in_array('2', $emp_panel_access))
+                                <?php endif; ?>
+                                <?php if(in_array('2', $emp_panel_access)): ?>
                                     <option value="2">Website Quote</option>
-                                @endif
-                                @if (in_array("110", $phoneaccess) && in_array('3', $emp_panel_access))
+                                <?php endif; ?>
+                                <?php if(in_array("110", $phoneaccess) && in_array('3', $emp_panel_access)): ?>
                                     <option value="3">Testing Quote</option>
-                                @endif
-                                @if (in_array('4', $emp_panel_access))
+                                <?php endif; ?>
+                                <?php if(in_array('4', $emp_panel_access)): ?>
                                     <option value="4">Panel Type 4 Quote</option>
-                                @endif
-                                @if (in_array('5', $emp_panel_access))
+                                <?php endif; ?>
+                                <?php if(in_array('5', $emp_panel_access)): ?>
                                     <option value="5">Panel Type 5 Quote</option>
-                                @endif
-                                @if (in_array('6', $emp_panel_access))
+                                <?php endif; ?>
+                                <?php if(in_array('6', $emp_panel_access)): ?>
                                     <option value="6">Panel Type 6 Quote</option>
-                                @endif
+                                <?php endif; ?>
                             </optgroup>
                         </select>
                     </form>
-                    @endif
-                    {{-- @if(in_array("134", $phoneaccess) && in_array("135", $phoneaccess)) --}}
-                        <form name="callform" action="{{url('call_type')}}" id="call_form" method="post" class="m-0">
-                            @csrf
+                    <?php endif; ?>
+                    
+                        <form name="callform" action="<?php echo e(url('call_type')); ?>" id="call_form" method="post" class="m-0">
+                            <?php echo csrf_field(); ?>
                             <select class="form-control h-70 call_typecall_type"
                                     name="call_type" id="call_type">
 
                                 <option selected="selected" value=""><?php echo get_call_name(); ?></option>
                                 <optgroup label="Select Call Type">
-                                    @if (in_array("135", $phoneaccess))
+                                    <?php if(in_array("135", $phoneaccess)): ?>
                                         <option value="135">Call Old Web</option>
-                                    @endif
-                                    @if (in_array("134", $phoneaccess))
+                                    <?php endif; ?>
+                                    <?php if(in_array("134", $phoneaccess)): ?>
                                         <option value="134">Call App</option>
-                                    @endif
+                                    <?php endif; ?>
                                 </optgroup>
                             </select>
                         </form>
-                    {{-- @endif --}}
-                @if(Auth::user()->role==1)
+                    
+                <?php if(Auth::user()->role==1): ?>
                <div class="header_ri">
                     <div class="dropdown   header-fullscreen">
-                        <a class="nav-link icon full-screen-link p-0" href="{{url('day_count')}}"
+                        <a class="nav-link icon full-screen-link p-0" href="<?php echo e(url('day_count')); ?>"
                            title="DAY COUNT">
-                           {{-- fa-blink --}}
+                           
                             <i class="header-icon fa fa-clock-o" style="color: #ef4b4b">
                             </i>
                         </a>
                     </div>
 
                     <div class="dropdown   header-fullscreen">
-                        <a class="nav-link icon full-screen-link p-0" href="{{url('click_to_count')}}"
+                        <a class="nav-link icon full-screen-link p-0" href="<?php echo e(url('click_to_count')); ?>"
                            title="Total Clicks">
                             <i class="header-icon fa fa-mouse-pointer">
                             </i>
                         </a>
                     </div>
                </div>
-                @endif
-                @if(Auth::user()->role < 6 || Auth::user()->role > 7)
+                <?php endif; ?>
+                <?php if(Auth::user()->role < 6 || Auth::user()->role > 7): ?>
                 <div class="dropdown header-message">
                     <a class="nav-link icon" data-toggle="dropdown">
                         <svg xmlns="http://www.w3.org/2000/svg" class="header-icon" width="24"
@@ -526,7 +521,7 @@ function get_user_name123($id)
                         //     ->limit(100)
                         //     ->get();
                         ?>
-                        <span class="badge badge-success side-badge" style="width: 25px;height: 25px;justify-content: center;align-items: center;display: flex !important;right: -10px;top: -10px;" id="msg_count">{{$getcount + $groupCount > 99 ? '99+' : $getcount + $groupCount }}</span>
+                        <span class="badge badge-success side-badge" style="width: 25px;height: 25px;justify-content: center;align-items: center;display: flex !important;right: -10px;top: -10px;" id="msg_count"><?php echo e($getcount + $groupCount > 99 ? '99+' : $getcount + $groupCount); ?></span>
                         <div class="toast-container position-fixed bottom-0 end-0 p-3"></div>
                     </a>
 
@@ -559,60 +554,64 @@ function get_user_name123($id)
                             ->get();
                             ?>
 
-                            @foreach($getchat as $chatrow)
-                                <a class="dropdown-item border-bottom" href="{{url('/chats/user/'.$chatrow->fromuserId)}}">
+                            <?php $__currentLoopData = $getchat; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $chatrow): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <a class="dropdown-item border-bottom" href="<?php echo e(url('/chats/user/'.$chatrow->fromuserId)); ?>">
                                     <div class="d-flex align-items-center">
                                         <div class="">
                                                         <span
                                                                 class="avatar avatar-md brround align-self-center cover-image"
-                                                                data-image-src="{{ url('assets/images/users/user.jpg')}}"></span>
+                                                                data-image-src="<?php echo e(url('assets/images/users/user.jpg')); ?>"></span>
                                         </div>
                                         <div class="d-flex">
                                             <div class="pl-3">
-                                                <h6 class="mb-1">{{get_user_name($chatrow->fromuserId)}}:</h6>
+                                                <h6 class="mb-1"><?php echo e(get_user_name($chatrow->fromuserId)); ?>:</h6>
 
                                                 <p class="fs-13 mb-1">
-                                                    {{$chatrow->description}}
+                                                    <?php echo e($chatrow->description); ?>
+
                                                 </p>
 
                                                 <div class="small text-muted">
-                                                    {{$chatrow->created_at}}
+                                                    <?php echo e($chatrow->created_at); ?>
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            @endforeach
-                            @foreach($getGroupChat as $chatrow)
-                                <a class="dropdown-item border-bottom" href="{{url('/chats/group/'.$chatrow->group_id)}}">
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php $__currentLoopData = $getGroupChat; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $chatrow): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <a class="dropdown-item border-bottom" href="<?php echo e(url('/chats/group/'.$chatrow->group_id)); ?>">
                                     <div class="d-flex align-items-center">
                                         <div class="">
-                                            @if($chatrow->grouplogo)
+                                            <?php if($chatrow->grouplogo): ?>
                                             <span
                                             class="avatar avatar-md brround align-self-center cover-image"
-                                            data-image-src="{{asset('storage/images/group/'.$chatrow->group->logo)}}"></span>
-                                            @else
+                                            data-image-src="<?php echo e(asset('storage/images/group/'.$chatrow->group->logo)); ?>"></span>
+                                            <?php else: ?>
                                             <span
                                             class="avatar avatar-md brround align-self-center cover-image"
-                                            data-image-src="{{asset('images/group-chat.png')}}"></span>
-                                            @endif
+                                            data-image-src="<?php echo e(asset('images/group-chat.png')); ?>"></span>
+                                            <?php endif; ?>
                                         </div>
                                         <div class="d-flex">
                                             <div class="pl-3">
-                                                <h6 class="mb-1">{{$chatrow->group->name}}:</h6>
+                                                <h6 class="mb-1"><?php echo e($chatrow->group->name); ?>:</h6>
 
                                                 <p class="fs-13 mb-1">
-                                                    {{isset($chatrow->user->slug) ? $chatrow->user->slug : (isset($chatrow->user->slug) ? $chatrow->user->name.' '.$chatrow->user->last_name : 'User')}}}: {{ \Illuminate\Support\Str::words($chatrow->message,3)}}
+                                                    <?php echo e(isset($chatrow->user->slug) ? $chatrow->user->slug : (isset($chatrow->user->slug) ? $chatrow->user->name.' '.$chatrow->user->last_name : 'User')); ?>}: <?php echo e(\Illuminate\Support\Str::words($chatrow->message,3)); ?>
+
                                                 </p>
 
                                                 <div class="small text-muted">
-                                                    {{$chatrow->created_at}}
+                                                    <?php echo e($chatrow->created_at); ?>
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </div>
 
                         <div class=" text-center p-2 border-top">
@@ -642,7 +641,7 @@ function get_user_name123($id)
 
 
                             ?>
-                            @foreach($data as $val2)
+                            <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val2): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <a href="/all_notification" class="dropdown-item border-bottom d-flex pl-4">
                                     <div class="notifyimg bg-info-transparent text-info"><i
                                                 class="ti-comment-alt"></i></div>
@@ -650,17 +649,19 @@ function get_user_name123($id)
                                         <div class="font-weight-normal1">
 
                                         <span
-                                                class="text-info">{{ isset($val2->user->slug) ? $val2->user->slug : $val2->user->name.' '.$val2->user->last_name }}
+                                                class="text-info"><?php echo e(isset($val2->user->slug) ? $val2->user->slug : $val2->user->name.' '.$val2->user->last_name); ?>
+
                                            </span>
                                             change status to :
 
-                                            {{get_pstatus($val2->pstatus)}} ORDER ID :
-                                            {{$val2->orderId}}
+                                            <?php echo e(get_pstatus($val2->pstatus)); ?> ORDER ID :
+                                            <?php echo e($val2->orderId); ?>
+
                                         </div>
-                                        <div class="small text-muted">{{\Carbon\Carbon::parse($val2->created_at)->format('M,Y d h:i:s A')}}</div>
+                                        <div class="small text-muted"><?php echo e(\Carbon\Carbon::parse($val2->created_at)->format('M,Y d h:i:s A')); ?></div>
                                     </div>
                                 </a>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </div>
                         <div class=" text-center p-2 border-top">
                             <a href="/all_notification" class="">View All Notifications</a>
@@ -668,10 +669,7 @@ function get_user_name123($id)
                     </div>
                 </div>
                 <div class="dropdown header-fullscreen header_ir">
-                    {{-- <a href="" data-toggle="modal" data-target="#stickynotemodal" class=""
-                        style="display: inline;">
-                        <i class="fas fa-sticky-note p-1" style="font-size: xx-large; background-color: #f6da52; color: #ffffff;"></i>
-                    </a> --}}
+                    
                     <a href="" data-toggle="modal" data-target="#stickynotemodal" style="display: inline;">
                         <i class="fa fa-sticky-note" 
                             style="
@@ -687,13 +685,13 @@ function get_user_name123($id)
                         </i>
                     </a>
                 </div>
-                @endif
+                <?php endif; ?>
                 <div class="dropdown profile-dropdown">
                     <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
 												<span class=" js-search-result-thumbnail responsive-img img_border fa fa-user"
                                                       style=" color: #6c757d; ">
-                        {{--<img src="{{ url('assets/images/users/2.jpg')}}" alt="img"--}}
-                                                    {{--class="avatar avatar-md brround">--}}
+                        
+                                                    
 
 												</span>
                     </a>
@@ -703,10 +701,11 @@ function get_user_name123($id)
                             <a
                                     class="dropdown-item text-center user pb-0 font-weight-bold"
                                     style="text-transform: uppercase;">
-                                {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}
+                                <?php echo e(isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email); ?>
+
 
                             </a>
-                            @php
+                            <?php
                                 $commission = null;
 
                                 if(Auth::check()) {
@@ -734,71 +733,71 @@ function get_user_name123($id)
                                         }
                                     }
                                 }
-                            @endphp
+                            ?>
 
-                            @if (isset($commission))
-                                <span class="text-center user-semi-title">Commission {{ $commission }} </span>
-                            @endif
+                            <?php if(isset($commission)): ?>
+                                <span class="text-center user-semi-title">Commission <?php echo e($commission); ?> </span>
+                            <?php endif; ?>
                             
-                            <a class="dropdown-item d-flex" href="{{url('/update_password')}}">
+                            <a class="dropdown-item d-flex" href="<?php echo e(url('/update_password')); ?>">
                                 <i class="fa fa-key pr-1 mt-1 ml-1"></i>
                                 <div class="">Change Password</div>
                             </a>
-                            @if(Auth::user()->role == 1)
-                                <a class="dropdown-item d-flex" href="{{url('/other_pass')}}">
+                            <?php if(Auth::user()->role == 1): ?>
+                                <a class="dropdown-item d-flex" href="<?php echo e(url('/other_pass')); ?>">
                                     <i class="fa fa-lock pr-1 mt-1 ml-1"></i>
                                     <div class="">Other Password</div>
                                 </a>
-                            @endif
-                            @if(in_array("79", $phoneaccess))
-                                <a class="dropdown-item d-flex" href="{{url('/profile')}}">
+                            <?php endif; ?>
+                            <?php if(in_array("79", $phoneaccess)): ?>
+                                <a class="dropdown-item d-flex" href="<?php echo e(url('/profile')); ?>">
                                     <i class="fa fa-user pr-1 mt-1 ml-1"></i>
                                     <div class="">Profile</div>
                                 </a>
-                            @endif
-                            @if(Auth::user()->role < 6 || Auth::user()->role > 7)
-                                <a class="dropdown-item d-flex" href="{{url('/guides')}}">
+                            <?php endif; ?>
+                            <?php if(Auth::user()->role < 6 || Auth::user()->role > 7): ?>
+                                <a class="dropdown-item d-flex" href="<?php echo e(url('/guides')); ?>">
                                     <i class="fa fa-question-circle pr-2 mt-1 ml-1"></i>
                                     <div class="">Guides</div>
                                 </a>
-                            @endif
-                            @if(Auth::user()->role == 1 || Auth::user()->role == 3)
-                                <a class="dropdown-item d-flex" href="{{url('/jd_report')}}">
+                            <?php endif; ?>
+                            <?php if(Auth::user()->role == 1 || Auth::user()->role == 3): ?>
+                                <a class="dropdown-item d-flex" href="<?php echo e(url('/jd_report')); ?>">
                                     <i class="fa fa-book pr-2 mt-1 ml-1"></i>
                                     <div class="">JD</div>
                                 </a>
-                            @endif
-                            @if(in_array("120", $phoneaccess))
-                                <a class="dropdown-item d-flex" href="{{ route('logout_questions.index') }}">
+                            <?php endif; ?>
+                            <?php if(in_array("120", $phoneaccess)): ?>
+                                <a class="dropdown-item d-flex" href="<?php echo e(route('logout_questions.index')); ?>">
                                     <i class="fa fa-book pr-2 mt-1 ml-1"></i>
                                     <div class="">Logout Questions</div>
                                 </a>
-                            @endif
-                            @if(in_array("117", $phoneaccess))
-                                <a class="dropdown-item d-flex" href="{{ route('logout_questions_answers.index') }}">
+                            <?php endif; ?>
+                            <?php if(in_array("117", $phoneaccess)): ?>
+                                <a class="dropdown-item d-flex" href="<?php echo e(route('logout_questions_answers.index')); ?>">
                                     <i class="fa fa-book pr-2 mt-1 ml-1"></i>
                                     <div class="">Logout Questions Answers</div>
                                 </a>
-                            @endif
-                            @php
+                            <?php endif; ?>
+                            <?php
                                 $ddApi = \App\SiteSetting::find(1);
                                 // if ($ddApi->allow == 1) {
                                 //     # code...
                                 // }
-                            @endphp
-                            @if(Auth::user()->role == 1 || Auth::user()->role == 9)
+                            ?>
+                            <?php if(Auth::user()->role == 1 || Auth::user()->role == 9): ?>
                                 <div class="form-check form-switch dropdown-item d-flex align-items-center">
-                                    <input class="form-check-input" type="checkbox" id="toggleSwitch" value="1" @if ($ddApi->allow == 1) checked @endif>
+                                    <input class="form-check-input" type="checkbox" id="toggleSwitch" value="1" <?php if($ddApi->allow == 1): ?> checked <?php endif; ?>>
                                     <label class="form-check-label ms-3" for="toggleSwitch">Allow DayDispatch</label>
                                 </div>
-                            @endif
-                            @if(Auth::user()->role == 1)
+                            <?php endif; ?>
+                            <?php if(Auth::user()->role == 1): ?>
                                 <div class="form-check form-switch dropdown-item d-flex align-items-center">
-                                    <input class="form-check-input" type="checkbox" id="toggleGroupChat" value="1" @if ($ddApi->groupChatCheck == 1) checked @endif>
+                                    <input class="form-check-input" type="checkbox" id="toggleGroupChat" value="1" <?php if($ddApi->groupChatCheck == 1): ?> checked <?php endif; ?>>
                                     <label class="form-check-label ms-3" for="toggleGroupChat">Group Chat Check</label>
                                 </div>
-                            @endif
-                            <a class="dropdown-item d-flex" href="{{ route('logout_questions_answers.create') }}">
+                            <?php endif; ?>
+                            <a class="dropdown-item d-flex" href="<?php echo e(route('logout_questions_answers.create')); ?>">
                                 <i class="fa fa-book pr-2 mt-1 ml-1"></i>
                                 <div class="">Logout</div>
                             </a>
@@ -817,7 +816,7 @@ function get_user_name123($id)
         var groupChatCheck = $("#toggleGroupChat").prop('checked') ? 1 : 0;
 
         $.ajax({
-            url: "{{ route('allowQuotesDD') }}",
+            url: "<?php echo e(route('allowQuotesDD')); ?>",
             type: "GET",
             dataType: "json",
             data: {
@@ -848,4 +847,4 @@ function get_user_name123($id)
             }
         });
     });
-</script>
+</script><?php /**PATH C:\xampp\htdocs\project_three\resources\views/partials/mainsite_p/nav.blade.php ENDPATH**/ ?>
